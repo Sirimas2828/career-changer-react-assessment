@@ -3,14 +3,14 @@ import React from 'react'
 function Admin() {
     return (
       <div className="Admin"> 
-        <h1>Creat User Here</h1>
+        <h1>Create User Here</h1>
         <div>
-          <input type="text" placeholder="Name" style={{margin: '4px'}} />
-          <input type="text" placeholder="Last Name" style={{margin: '4px'}} />
-          <input type="text" placeholder="Position" style={{margin: '4px'}} />
+        <input type="text" placeholder="Name" style={{margin: '4px'}} onChange={(event) => setName(even.target.value)} />
+          <input type="text" placeholder="Last Name" style={{margin: '4px'}} onChange={(event) => setName(even.target.value)} />
+          <input type="text" placeholder="Position" style={{margin: '4px'}} onChange={(event) => setName(even.target.value)} />
           <button style={{margin: '4px'}} onClick={addUser}>Save</button>
         </div>
-  
+      
         <table>
             <tr>
               <th>Name</th>
@@ -25,7 +25,7 @@ function Admin() {
                         <td>{item.name}</td>
                         <td>{item.lastname}</td>
                         <td>{item.position}</td>
-                        {/* <td>{delete}</td> */}
+                        <td><button onClick={() => deleteUser(index)}>Delete</button></td>
                     </tr>
                     )
             })}

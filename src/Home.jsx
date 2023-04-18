@@ -10,7 +10,6 @@ import Admin from "./Admin"
 
 
 
-
 const Home = () => {
 
   return (
@@ -76,33 +75,48 @@ const Sector = () => {
 };
 
 const Sector2 = () => {
-  const mockEmployees = [
+  const [mockEmployees, setMockEmployees] = useState([
     { name: 'mock', lastname: 'mocklastname', position: 'Manager' },
     { name: 'employee 1', lastname: 'lord', position: 'Engineer' },
     { name: 'employee 2', lastname: 'Johnson', position: 'Designer' }
-  ];
+  ]);
 
   const [showAdminPanel, setShowAdminPanel] = useState(false);
-  
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [position, setPosition] = useState('');
+
   const toggleAdminPanel = () => {
     setShowAdminPanel(!showAdminPanel);
   };
 
   const deleteUser = (index) => {
-    // to delete a user from mockEmployees
     const updatedEmployees = [...mockEmployees];
     updatedEmployees.splice(index, 1);
     setMockEmployees(updatedEmployees);
   };
 
-  const addUser = (index) => {
-    const addUsers = [...mockUsers];
-    updatedEmployees.
-  }
+  const addUser = () => {
+    const updatedEmployees = [...mockEmployees];
+    updatedEmployees.push({ name, lastname: lastName, position });
+    setMockEmployees(updatedEmployees);
+    setShowCreateUser(false);
+  };
 
   return (
     <div>
       <button onClick={toggleAdminPanel}>Admin Home Sector</button>
+      {showAdminPanel && (
+        <div className="Admin">
+          <h1>Create User Here</h1>
+          <div>
+            <input type="text" placeholder="Name" style={{ margin: '4px' }} onChange={(event) => setName(event.target.value)} />
+            <input type="text" placeholder="Last Name" style={{ margin: '4px' }} onChange={(event) => setLastName(event.target.value)} />
+            <input type="text" placeholder="Position" style={{ margin: '4px' }} onChange={(event) => setPosition(event.target.value)} />
+            <button style={{ margin: '4px' }} onClick={addUser}>Save</button>
+          </div>
+        </div>
+      )}
       {showAdminPanel && (
         <table border="1px">
           <thead>
@@ -128,5 +142,8 @@ const Sector2 = () => {
     </div>
   );
 };
+
+
+
 
 export default Home

@@ -37,8 +37,8 @@ function Content() {
 const Sector = () => {
   const mockEmployees = [
     { name: 'mock', lastname: 'mocklastname', position: 'Manager' },
-    { name: 'employee 1', lastname: 'lord', position: 'Engineer' },
-    { name: 'employee 2', lastname: 'Johnson', position: 'Designer' }
+    { name: 'employee 1', lastname: 'em', position: 'Engineer' },
+    { name: 'employee 2', lastname: 'lord', position: 'Designer' }
   ];
 
   const [showTable, setShowTable] = useState(false);
@@ -48,8 +48,8 @@ const Sector = () => {
   };
 
   return (
-    <div>
-      <button onClick={toggleTable}>User Home Sector</button>
+    <div class="button">
+      <button class="homeSector" onClick={toggleTable}>User Home Sector</button>
       {showTable && (
         <table border="1px">
           <thead>
@@ -77,8 +77,8 @@ const Sector = () => {
 const Sector2 = () => {
   const [mockEmployees, setMockEmployees] = useState([
     { name: 'mock', lastname: 'mocklastname', position: 'Manager' },
-    { name: 'employee 1', lastname: 'lord', position: 'Engineer' },
-    { name: 'employee 2', lastname: 'Johnson', position: 'Designer' }
+    { name: 'employee 1', lastname: 'em', position: 'Engineer' },
+    { name: 'employee 2', lastname: 'lord', position: 'Designer' }
   ]);
 
   const [showAdminPanel, setShowAdminPanel] = useState(false);
@@ -104,16 +104,16 @@ const Sector2 = () => {
   };
 
   return (
-    <div>
-      <button onClick={toggleAdminPanel}>Admin Home Sector</button>
+    <div class="button">
+      <button  onClick={toggleAdminPanel}>Admin Home Sector</button>
       {showAdminPanel && (
         <div className="Admin">
-          <h1>Create User Here</h1>
-          <div>
-            <input type="text" placeholder="Name" style={{ margin: '4px' }} onChange={(event) => setName(event.target.value)} />
-            <input type="text" placeholder="Last Name" style={{ margin: '4px' }} onChange={(event) => setLastName(event.target.value)} />
-            <input type="text" placeholder="Position" style={{ margin: '4px' }} onChange={(event) => setPosition(event.target.value)} />
-            <button style={{ margin: '4px' }} onClick={addUser}>Save</button>
+          <h3>Create User Here</h3>
+          <div class="addUser">
+            <input type="text" placeholder="Name" onChange={(event) => setName(event.target.value)} />
+            <input type="text" placeholder="Last Name"  onChange={(event) => setLastName(event.target.value)} />
+            <input type="text" placeholder="Position"  onChange={(event) => setPosition(event.target.value)} />
+            <button  onClick={addUser}>Save</button>
           </div>
         </div>
       )}

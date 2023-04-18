@@ -68,7 +68,10 @@ table {
     px;
 }
 button {
-    width: 150px;
     height: 30px;
     font-size: 14px;
+}
+
+p {
+    font-size: 18px;
 }

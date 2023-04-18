@@ -18,7 +18,7 @@ const Home = () => {
       <Layout />
       <Content />
       <Sector />
-      {/* <Admin /> */}
+      <Sector2 />
     </div>
   )
 }
@@ -29,7 +29,6 @@ function Content() {
     <div class="content">
         <h1>Generation Thailand</h1>
         <h1>React - Assessment</h1>
-      <button class ='button'>Admin Home Sector</button>
     </div>
   )
 }
@@ -53,7 +52,7 @@ const Sector = () => {
     <div>
       <button onClick={toggleTable}>User Home Sector</button>
       {showTable && (
-        <table>
+        <table border="1px">
           <thead>
             <tr>
               <th>Name</th>
@@ -76,35 +75,58 @@ const Sector = () => {
   );
 };
 
+const Sector2 = () => {
+  const mockEmployees = [
+    { name: 'mock', lastname: 'mocklastname', position: 'Manager' },
+    { name: 'employee 1', lastname: 'lord', position: 'Engineer' },
+    { name: 'employee 2', lastname: 'Johnson', position: 'Designer' }
+  ];
 
-
-// const Admin = () => {
-//   let fillInfo = [
-//     <h1>Creat User Here</h1>
-//         <div>
-//           <input type="text" placeholder="Name" style={{margin: '4px'}} />
-//           <input type="text" placeholder="Last Name" style={{margin: '4px'}} />
-//           <input type="text" placeholder="Position" style={{margin: '4px'}} />
-//           <button style={{margin: '4px'}}>Save</button>
-//         </div>
-//   ];
-    
+  const [showAdminPanel, setShowAdminPanel] = useState(false);
   
-        
+  const toggleAdminPanel = () => {
+    setShowAdminPanel(!showAdminPanel);
+  };
 
+  const deleteUser = (index) => {
+    // to delete a user from mockEmployees
+    const updatedEmployees = [...mockEmployees];
+    updatedEmployees.splice(index, 1);
+    setMockEmployees(updatedEmployees);
+  };
 
+  const addUser = (index) => {
+    const addUsers = [...mockUsers];
+    updatedEmployees.
+  }
 
-
-
-
-// const Employees = () => {
-//   const [mockEmployees, setEmployee] = useState()
- 
-//     setEmployee(mockEmployees)
-// }
-
-
-
-
+  return (
+    <div>
+      <button onClick={toggleAdminPanel}>Admin Home Sector</button>
+      {showAdminPanel && (
+        <table border="1px">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Last Name</th>
+              <th>Position</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mockEmployees.map((item, index) => (
+              <tr key={index}>
+                <td>{item.name}</td>
+                <td>{item.lastname}</td>
+                <td>{item.position}</td>
+                <td><button onClick={() => deleteUser(index)}>Delete</button></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
+};
 
 export default Home

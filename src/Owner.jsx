@@ -1,13 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 import Navbar from './Navbar';
-import {useState} from 'react'
-import { useEffect } from "react"
-import Layout from './Layout'
 import './style.css'
 
 

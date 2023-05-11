@@ -1,40 +1,19 @@
 import React from 'react'
-import Home from './Home'
-
-let mockEmployees = [
-    {
-      id: 0,
-      name: "mock",
-      lastname: 'mocklastname',
-      position: "Manager"
-    },
-    {
-      id: 1,
-      name: "employee 1",
-      lastname: "em",
-      position: "Engineer"
-    },
-    {
-      id: 2,
-      name: "employee 2",
-      lastname: "lord",
-      position: "Designer"
-    },
-  ]
+import './style.css'
 
 
+const User = (prop) => {
 
-const User = () => {
     return (
         <table>
-        <tr>
-            <th>name</th>
+        <tr className="user-sector">
+            <th>Name</th>
             <th>Last name</th>
             <th>Position</th>
         </tr>
-        {mockEmployees.map((item) => {
+        {prop.employees.map((item, i) => {
             return (
-                <tr>
+                <tr className="user-sector">
                     <td>{item.name}</td>
                     <td>{item.lastname}</td>
                     <td>{item.position}</td>

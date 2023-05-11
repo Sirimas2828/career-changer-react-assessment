@@ -10,6 +10,19 @@ h1 {
 }
 
 
+.user-sector  {
+    font-size: 18px;;
+    align-content: center;
+   align-items: center;
+}
+
+.home-section1-normal-btn {
+    display: flex;
+    justify-content: center;
+}
+
+
+
 
 ul{
     display: flex;
